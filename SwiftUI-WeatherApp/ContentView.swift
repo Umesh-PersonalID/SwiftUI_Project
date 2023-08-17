@@ -1,21 +1,31 @@
-//
-//  ContentView.swift
-//  SwiftUI-WeatherApp
-//
-//  Created by Umesh Ghaskata on 11/08/23.
-//
-
 import SwiftUI
+
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack{
+            LinearGradient(colors: [.blue,.white],
+                           startPoint:.top,
+                           endPoint:.bottom)
+            .edgesIgnoringSafeArea(.all)
+            VStack{
+                Text("Surat, GJ05")
+                    .font(.system(size: 32,weight: .medium,design: .default))
+                    .foregroundColor(.white)
+                    .padding()
+                VStack(spacing: 8){
+                    Image(systemName: "cloud.sun.fill")
+                        .renderingMode(.original)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 180,height: 180)
+                    Text("76°")
+                        .font(.system(size: 50,weight: .medium))
+                        .foregroundColor(.white)
+                }
+                Spacer()
+            }
         }
-        .padding()
     }
 }
 
